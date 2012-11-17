@@ -12,6 +12,8 @@
 .idea
 .rbx/
 
+config/initializers/constants.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

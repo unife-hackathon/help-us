@@ -1,0 +1,2 @@
+ENV['FACEBOK_KEY'] = "your_facebook_app_key"
+ENV['FACEBOOK_SECRET'] = "your_facebook_app_secret"

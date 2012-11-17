@@ -11,7 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117210022) do
+ActiveRecord::Schema.define(:version => 20121117232427) do
+
+  create_table "need_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "um"
+    t.string   "icon"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "needs", :force => true do |t|
+    t.integer  "requested_quantity"
+    t.integer  "need_type_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "logo"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -26,6 +55,11 @@ ActiveRecord::Schema.define(:version => 20121117210022) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "displayname"
+    t.string   "fb_token"
+    t.boolean  "has_local_password"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
