@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :displayname
   # attr_accessible :title, :body
 
-  has_one :role
+  #has_one :role
 
   def self.find_for_facebook_oauth(auth, current_user = nil)
     # If the user is logged in but not with a provider
