@@ -12,6 +12,7 @@ gem 'thin'
 gem 'paperclip'
 gem 'omniauth-facebook'
 gem 'gmaps4rails'
+gem 'rails_admin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,7 +27,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'execjs'
+#gem 'execjs'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
