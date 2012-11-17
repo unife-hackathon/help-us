@@ -7,11 +7,16 @@ gem 'rails', '3.2.8'
 
 #gem 'mysql2'
 gem 'sqlite3'
+gem 'devise'
+gem 'thin'
+gem 'paperclip'
+gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'bootstrap-sass', '~> 2.0.4.0'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -20,7 +25,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 gem 'execjs'
 gem 'jquery-rails'
 
