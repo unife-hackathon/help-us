@@ -1,18 +1,24 @@
-%div
-  = "#{need.supplies.sum(:quantity)} / #{need.requested_quantity}"
-  = need.need_type.um
-  = "(#{need.percent_completed}%)"
+.need
+  .media
+    %a.pull-left{ :href => "#"}
+      = image_tag "/#{need.need_type.logo}", :class => "media-object"
 
-.progress.progress-striped
-  .bar{:style => "width: #{need.percent_completed}%;" }
+    .media-body
+      %h4.media-heading
+        = need.name
 
-= link_to "DONA!", new_organization_need_supply_path(need.organization, need), :class=>"btn btn-huge btn-primary pull-right"
+      raccolti
+      = "#{need.supplies.sum(:quantity)} su #{need.requested_quantity} #{need.need_type.um}"
 
+      .progress.progress-striped
+        .bar{:style => "width: #{need.percent_completed}%;" }
 
+      = link_to "DONA!", new_organization_need_supply_path(need.organization, need), :class=>"btn btn-huge btn-primary pull-right"
 
-- #TODO: terminare di stilare gli la sezione di utenti che hanno effettuato donazioni con HIDE/SHOW
+      - if need.supplies.present?
+        = link_to "Donazioni precedenti", "#", :class => "show-hide-donations", :data => { :need_id => need.id}
+        .supplies{:id => "supplies-need-#{need.id}", :style => "display:none;"}
 
-- if need.supplies.present?
-  - need.supplies.each do |supply|
-    = supply.quantity
-    = supply.user.email
+          - need.supplies.each do |supply|
+            .supply
+              = "#{supply.user.username} ha donato #{supply.quantity} #{need.need_type.um}"
