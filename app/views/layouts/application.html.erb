@@ -36,6 +36,15 @@
   </head>
   <body>
 
+  <nav>
+    <% if current_user %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <% end %>
+  </nav>
+
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -44,12 +53,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Aiutaci!</a>
+          <a class="brand" href="/">Aiutaci!</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Organizzazioni", organizations_path %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -58,17 +65,14 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-
-        </div><!--/span-->
-        <div class="span9">
+        <div class="span12">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; UniFe Engineers 2012</p>
+        <p>&copy; UniFe Engineers 2012. Made with passion in H-Farm, during the WHYMCA Hackathon.</p>
       </footer>
 
     </div> <!-- /container -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118001134) do
+ActiveRecord::Schema.define(:version => 20121118004307) do
 
   create_table "need_types", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20121118001134) do
     t.string   "icon"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "logo"
   end
 
   create_table "needs", :force => true do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121118001134) do
     t.integer  "need_type_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "organization_id"
   end
 
   create_table "organizations", :force => true do |t|
@@ -35,9 +37,6 @@ ActiveRecord::Schema.define(:version => 20121118001134) do
     t.string   "logo"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "gmaps"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
