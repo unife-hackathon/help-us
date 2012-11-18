@@ -1,16 +1,27 @@
 # Create some NeedTypes
 money = NeedType.create(:name => "Raccolta fondi",
-                        :description => "Abbiamo bisogno della vostra solidarietà!",
+                        :description => "Abbiamo bisogno della vostra solidarieta'!",
                         :logo => "system/money.jpg",
                         :um => "euro")
+
 water = NeedType.create(:name => "Acqua",
                         :description => "Abbiamo bisogno di acqua!",
                         :logo => "system/water.jpg",
                         :um => "litri")
+
 volounteer = NeedType.create(:name => "Volontariato",
                              :description => "Abbiamo bisogno di volontariato!",
                              :logo => "system/volounteer.jpg",
                              :um => "persone")
+
+farina = NeedType.create(:name => "Farina",
+                             :description => "Abbiamo bisogno di farina!",
+                             :um => "Kg")
+
+uova = NeedType.create(:name => "Uova",
+                             :description => "Abbiamo bisogno di uova!",
+                             :um => "N")
+
 
 # Create some organizations
 s_ago_school = Organization.create(:name => "Nuova scuola di S.Agostino",
@@ -27,10 +38,33 @@ mensa_finale = Organization.create(:name => "Mensa di Finale Emilia",
                     :longitude => "11.2919")
 
 # Create some needs for the organizations
-s_ago_school.needs.create(:requested_quantity => 1000,
+s_ago_school.needs.create(:requested_quantity => 10000,
             :need_type_id => money.id)
 
-mensa_finale.create(:requested_quantity => 500,
+s_ago_school.needs.create(:requested_quantity => 1000,
+                          :need_type_id => water.id)
+
+s_ago_school.needs.create(:requested_quantity => 10,
+                          :need_type_id => volounteer.id)
+
+s_ago_school.needs.create(:requested_quantity => 300,
+                          :need_type_id => farina.id)
+
+s_ago_school.needs.create(:requested_quantity => 200,
+                          :need_type_id => uova.id)
+
+mensa_finale.needs.create(:requested_quantity => 30000,
+                    :need_type_id => money.id)
+
+mensa_finale.needs.create(:requested_quantity => 500,
            :need_type_id => water.id)
 
+mensa_finale.needs.create(:requested_quantity => 5,
+                    :need_type_id => volounteer.id)
+
+mensa_finale.needs.create(:requested_quantity => 5,
+                    :need_type_id => farina.id)
+
+mensa_finale.needs.create(:requested_quantity => 5,
+                    :need_type_id => uova.id)
 
