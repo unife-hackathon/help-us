@@ -18,9 +18,14 @@
       .clearfix
 
       .progress.progress-striped
+
         .bar{:style => "width: #{need.percent_completed}%;" }
 
-      = link_to new_organization_need_supply_path(need.organization, need), :class=>"btn-help btn btn-large btn-primary pull-right" do
+
+      #modalDiv{ :class=>"reveal-modal"}
+
+      = link_to new_organization_need_supply_path(need.organization, need), {"data-need_id"=> "#{need.id}", :class=>"btn btn-large btn-primary pull-right"} do
+
         %i.icon-heart
         Aiuta!
 
