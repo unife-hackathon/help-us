@@ -1,14 +1,14 @@
 # Create some NeedTypes
-money = NeedType.create(:name => "money",
-                        :description => "People, we need moar money!",
+money = NeedType.create(:name => "Raccolta fondi",
+                        :description => "Abbiamo bisogno della vostra solidarietà!",
                         :logo => "system/money.jpg",
                         :um => "euro")
-water = NeedType.create(:name => "water",
-                        :description => "We need some water!",
+water = NeedType.create(:name => "Acqua",
+                        :description => "Abbiamo bisogno di acqua!",
                         :logo => "system/water.jpg",
                         :um => "litri")
-volounteer = NeedType.create(:name => "volounteer",
-                             :description => "Help us people!",
+volounteer = NeedType.create(:name => "Volontariato",
+                             :description => "Abbiamo bisogno di volontariato!",
                              :logo => "system/volounteer.jpg",
                              :um => "persone")
 
@@ -27,12 +27,10 @@ mensa_finale = Organization.create(:name => "Mensa di Finale Emilia",
                     :longitude => "11.2919")
 
 # Create some needs for the organizations
-Need.create(:requested_quantity => 1000,
-            :need_type_id => money.id,
-            :organization_id => s_ago_school.id)
+s_ago_school.needs.create(:requested_quantity => 1000,
+            :need_type_id => money.id)
 
-Need.create(:requested_quantity => 500,
-           :need_type_id => water.id,
-           :organization_id => mensa_finale.id)
+mensa_finale.create(:requested_quantity => 500,
+           :need_type_id => water.id)
 
 
