@@ -2,7 +2,7 @@
 money = NeedType.create(:name => "money",
                         :description => "People, we need moar money!",
                         :logo => "system/money.jpg",
-                        :um => "€")
+                        :um => "euro")
 water = NeedType.create(:name => "water",
                         :description => "We need some water!",
                         :logo => "system/water.jpg",
@@ -27,8 +27,8 @@ Need.create(:requested_quantity => 1000,
             :need_type_id => money.id,
             :organization_id => s_ago_school.id)
 
-Need.crate(:requested_quantity => 500,
+Need.create(:requested_quantity => 500,
            :need_type_id => water.id,
-           :organization_id => mensa_finale)
+           :organization_id => mensa_finale.id)
 
 
