@@ -7,3 +7,12 @@
 
 
 = link_to "DONA!", new_organization_need_supply_path(need.organization, need), :class=>"btn btn-huge btn-primary"
+
+- if need.supplies.present?
+  - need.supplies.each do |supply|
+    = supply.quantity
+    = supply.user.email
+- else
+  %p
+    Nessun elemento presente
+

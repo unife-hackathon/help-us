@@ -7,6 +7,7 @@
 .span4
   = image_tag "find_on_map.png"
 
-#map-container.span6
+.span6
   = gmaps({:map_options => {:zoom => 5, :auto_adjust => true, :language => 'en'},
            :markers => {:data => @markers}})
+
