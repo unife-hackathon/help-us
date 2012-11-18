@@ -8,4 +8,6 @@
   .progress
     = "#{organization.percent_completed}%"
     .bar{ :style => "width: #{organization.percent_completed}%;"}
+  = link_to "Aiuta!", organization_path(organization), {:class => "pull-right btn-primary btn"}
+
 
