@@ -4,5 +4,4 @@
 %h3
   = @organization.description
 
-%h4
-  = render @organization.needs
+= link_to "Cosa ci serve?", organization_needs_path(@organization)

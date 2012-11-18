@@ -1,0 +1,7 @@
+<% if @supplies.present? %>
+  <% @supplies.each do |supply| %>
+    <%= supply.quantity %> -> <%= supply.user.email %><br/>
+  <% end %>
+<% else %>
+  <p>Nessun elemento presente</p>
+<% end %>

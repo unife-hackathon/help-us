@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :displayname
+
+  has_many :supplies
+  has_many :needs, :through => :supply
+
   # attr_accessible :title, :body
 
   #has_one :role
@@ -32,5 +36,8 @@ class User < ActiveRecord::Base
     user
   end
 
+  def admin?
+    admin
+  end
 
 end
