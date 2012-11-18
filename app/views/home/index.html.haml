@@ -1,7 +1,8 @@
 .site-slogan
-  Partecipa a progetti concreti
+  .main
+    Partecipa a progetti di ricostruzione
   .description
-    Aiutaci! ti consente di aiutare chi ha subito tragiche catastrofi monitorando lo stato avanzamento lavori
+    Aiutaci! ti consente di supportare popolazioni in difficoltà, donando beni e denaro in campagne di ricostruzione
 
 .span1
 .span4.find-on-map.hint-image
@@ -16,10 +17,6 @@
     .span1
     .span5.box
       %h5
-        Ultime richieste
-      - @needs.each do |need|
-        .need
-          = link_to need.name, new_organization_need_supply_path(need.organization, need), {:id => "foundRequest"}
-
-          da parte di
-          = link_to need.organization.name, organization_path(need.organization)
+        Ultime campagne
+      - @organizations.each do |organization|
+        = render organization

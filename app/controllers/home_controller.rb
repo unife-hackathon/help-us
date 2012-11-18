@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-    @needs = Need.includes(:organization).order('created_at desc').last(5)
+    @organizations = Organization.includes(:needs).order('created_at desc').last(3)
+
     respond_to do |format|
       format.html { @markers = markers('html').to_json}
       format.json { render json: markers('json').to_json   }
@@ -16,8 +17,9 @@ class HomeController < ApplicationController
     Organization.all.each do |org|
       @needs = org.needs
       markers << { :lat => org.latitude, :lng => org.longitude,
-                   :picture => org.marker_path, :width => 86, :height => 86,
-                   :name => org.name, :description => org.description, :logo => org.logo, :detail => organization_path(org) }
+                   :do_clustering => true,
+                   :picture => "/system/map-pin.png", :width => 40, :height => 58,
+                   :name => org.name, :description => org.description, :logo => "/system/map-pins.png", :detail => organization_path(org) }
       markers.last[:description] = render_to_string(:partial => "organizations/organization", :locals => { :organization => org}) if format.eql? 'html'
     end
     markers
