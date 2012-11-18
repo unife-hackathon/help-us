@@ -1,14 +1,16 @@
 CodemotionHackaton::Application.routes.draw do
 
-  
-
-  
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
+
   get "home/index"
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
+
+  resources :organizations do
+    resources :needs
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -67,6 +69,4 @@ CodemotionHackaton::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  match 'organizations/:id' => 'organizations#show'
-  match 'organizations' => 'organizations#index'
 end

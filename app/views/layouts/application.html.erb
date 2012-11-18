@@ -13,7 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-
+    <%= stylesheet_link_tag 'gmaps4rails' %>
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
     <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
@@ -36,6 +36,7 @@
   </head>
   <body>
 
+
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -47,9 +48,19 @@
           <a class="brand" href="/">Aiutaci!</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Organizzazioni", :controller => :organizations, :action => :index %></li>
+              <li><%= link_to "Organizzazioni", organizations_path %></li>
+            </ul>
+            <ul class="nav pull-right">
+                <% if current_user %>
+                    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                    <li><%= link_to "Login", new_user_session_path %></li>
+                    <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                <% end %>
             </ul>
           </div><!--/.nav-collapse -->
+
+
         </div>
       </div>
     </div>
@@ -72,6 +83,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
+    <%= yield :scripts %>
 
   </body>
 </html>
