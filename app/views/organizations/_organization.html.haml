@@ -1,6 +1,6 @@
 .organization
   .name
-    =link_to organization.name, organization_path(organization)
+    = link_to organization.name, organization_path(organization)
     - if current_user.try("admin?")
       = link_to "Manage the project", organization_needs_path(organization)
   .description
