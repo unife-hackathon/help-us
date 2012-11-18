@@ -8,7 +8,7 @@
   = image_tag "hint-find-on-map.png", :class => "hidden-phone"
 
 .span6
-  = gmaps({:map_options => {:zoom => 5, :auto_adjust => true, :language => 'en'},
+  = gmaps({:map_options => {:zoom => 5, :auto_adjust => false, :language => 'en', :center_latitude => "41.799", :center_longitude => "12.59"},
            :markers => {:data => @markers}})
 
 .row-fluid
