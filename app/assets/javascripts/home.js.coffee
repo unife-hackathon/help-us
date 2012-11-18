@@ -1,9 +1,14 @@
 $ ->
+###
+  Gmaps.map.callback  = ()->
+    console.log "callbacked",
 
-  map = Gmaps.map.map
+    markers = Gmaps.map.markers
 
-  google.maps.event.addListener marker, 'click', ->
-    alert("asd")
+    for marker in markers
+      google.maps.event.addListener marker.serviceObject, 'click', () ->
+        console.log "eventatoooo", this
+###
 #infowindow = new google.maps.InfoWindow({
 #content: "<div class='popup'><h2>Awesome!</h2><p>Drag me and adjust the zoom level.</p>"
 #})
