@@ -18,7 +18,7 @@ class SuppliesController < ApplicationController
     @supply = @need.supplies.build(params[:supply])
     @supply.user = current_user
     if @supply.save
-
+      puts "SAVE"
       if current_user.provider.eql? "facebook"
         begin
           graph = Koala::Facebook::API.new(current_user.fb_token)
@@ -30,6 +30,7 @@ class SuppliesController < ApplicationController
       flash[:notice] = "Grazie per il tuo contributo!"
       redirect_to organization_path(@need.organization)
     end
+    puts @supply.errors.inspect
   end
 
 end
