@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @organizations = Organization.includes(:needs).order('created_at desc').last(3)
+    @organizations = Organization.includes(:needs).order('created_at desc').last(2)
 
     respond_to do |format|
       format.html { @markers = markers('html').to_json}
