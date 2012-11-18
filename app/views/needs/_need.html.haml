@@ -6,8 +6,9 @@
 .progress.progress-striped
   .bar{:style => "width: #{need.percent_completed}%;" }
 
+= link_to "DONA!", new_organization_need_supply_path(need.organization, need), :class=>"btn btn-huge btn-primary pull-right"
 
-= link_to "DONA!", new_organization_need_supply_path(need.organization, need), :class=>"btn btn-huge btn-primary"
+
 
 - #TODO: terminare di stilare gli la sezione di utenti che hanno effettuato donazioni con HIDE/SHOW
 
@@ -15,7 +16,3 @@
   - need.supplies.each do |supply|
     = supply.quantity
     = supply.user.email
-- else
-  %p
-    Nessun elemento presente
-

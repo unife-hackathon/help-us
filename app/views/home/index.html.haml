@@ -4,17 +4,22 @@
     Aiutaci! ti mostra chi ha bisogno di beni reali e denaro a causa di tragiche catastrofi
 
 .span1
-.span4
+.span4.find-on-map
   = image_tag "find_on_map.png"
 
 .span6
   = gmaps({:map_options => {:zoom => 5, :auto_adjust => true, :language => 'en'},
            :markers => {:data => @markers}})
 
-  Ultime richieste
-  - #TODO: stilare questa parte ----------------------------------------------------------------------------------------
-  - @needs.each do |need|
-    .need
-      = link_to need.name, organization_need_path(need.organization, need)
-      da parte di
-      = link_to need.organization.name, organization_path(need.organization)
+.row-fluid
+  .span12
+    .span1
+    .span5.box
+      %h5
+        Ultime richieste
+      - #TODO: stilare questa parte ----------------------------------------------------------------------------------------
+      - @needs.each do |need|
+        .need
+          = link_to need.name, organization_need_path(need.organization, need)
+          da parte di
+          = link_to need.organization.name, organization_path(need.organization)
