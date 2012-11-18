@@ -23,10 +23,8 @@
 
         .bar{:style => "width: #{need.percent_completed}%;" }
 
-
-      #modalDiv{ :class=>"reveal-modal"}
-
       = link_to new_organization_need_supply_path(need.organization, need), {"data-need_id"=> "#{need.id}", :class=>"btn btn-large btn-help btn-primary pull-right"} do
+
         %i.icon-heart
         Aiuta!
 

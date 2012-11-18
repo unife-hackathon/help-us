@@ -1,15 +1,20 @@
 $ ->
-###
-  Gmaps.map.callback  = ()->
-    console.log "callbacked",
 
-    markers = Gmaps.map.markers
 
-    for marker in markers
-      google.maps.event.addListener marker.serviceObject, 'click', () ->
-        console.log "eventatoooo", this
-###
-#infowindow = new google.maps.InfoWindow({
-#content: "<div class='popup'><h2>Awesome!</h2><p>Drag me and adjust the zoom level.</p>"
-#})
-#infowindow.open(Gmaps.map.map, marker);
+  $("#foundRequest").on "click", (event)->
+
+    event.preventDefault()
+
+    $this = $(this)
+    need_id = $this.attr "data-need_id"
+    $.get $this.attr("href") + "?no_layout=true", (response)->
+      $modal = $("#modalDiv")
+      $modal.html(response)
+      #$modal.children()
+      $modal.reveal({
+           animation: 'fadeAndPop',
+           animationspeed: 300,
+           closeonbackgroundclick: true,
+           dismissmodalclass: 'close-reveal-modal'
+      })
+
