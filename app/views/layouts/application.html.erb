@@ -48,7 +48,9 @@
           <a class="brand" href="/">Aiutaci!</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Organizzazioni", organizations_path %></li>
+              <% if current_user %>
+                <li><%= link_to "Organizzazioni", organizations_path %></li>
+              <% end %>
             </ul>
             <ul class="nav pull-right">
                 <% if current_user %>
