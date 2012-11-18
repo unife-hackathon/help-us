@@ -1,5 +1,5 @@
 class Need < ActiveRecord::Base
-  attr_accessible :need_type_id, :requested_quantity, :organization_id
+  attr_accessible :need_type_id, :requested_quantity, :organization_id, :attachments_attributes
 
   belongs_to :organization
   belongs_to :need_type
@@ -9,10 +9,8 @@ class Need < ActiveRecord::Base
   delegate :name, :to => :need_type
 
   # Attachments
-  has_attached_file :photo, :styles => {:large => '640x640', :medium => "230x230", :thumb => "128x128" },
-                    :path => ":rails_root/public/system/:attachment/:id/:style/:hash",
-                    :url => "/system/:attachment/:id/:style/:hash",
-                    :hash_secret => ":class/:attachment/:id/:style/:updated_at"
+  has_many :attachments
+  accepts_nested_attributes_for :attachments
 
   def percent_completed
     supplies.sum(:quantity) * 100 / requested_quantity
