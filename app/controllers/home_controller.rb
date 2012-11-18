@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @json = Organization.all.to_gmaps4rails do |organization, marker|
+    @organizations_gmaps = Organization.all.to_gmaps4rails do |organization, marker|
       marker.infowindow render_to_string(:partial => "organizations/organization", :locals => { :organization => organization})
 =begin
       marker.picture({
