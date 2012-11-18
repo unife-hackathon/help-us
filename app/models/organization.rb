@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :description, :logo, :name, :latitude, :longitude, :gmaps
+  attr_accessible :description, :logo, :name, :latitude, :longitude, :gmaps, :marker_path
 
   has_many :needs
   #has_many :users
@@ -22,6 +22,14 @@ class Organization < ActiveRecord::Base
         #"shadow_height" => "110",
         #"shadow_anchor" => [5, 10],
     }
+  end
+
+  def self.markers
+    markers = []
+    Organization.all.each do |org|
+      markers << {:lat => org.latitude, :lng => org.longitude, :picture => org.marker_path, :width => 48, :height => 48}
+    end
+    markers.to_json
   end
 
 end
