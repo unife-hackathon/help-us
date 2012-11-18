@@ -14,8 +14,8 @@ class SuppliesController < ApplicationController
     @need = Need.find(params[:need_id])
     @supply = @need.supplies.build(params[:supply])
     @supply.user = current_user
-
     if @supply.save
+      flash[:notice] = "Grazie per il tuo contributo!"
       redirect_to organization_path(@need.organization)
     end
   end

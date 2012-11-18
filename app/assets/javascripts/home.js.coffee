@@ -1,6 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
 
   Gmaps.map.callback  = ()->
@@ -11,3 +8,8 @@ $ ->
     for marker in markers
       google.maps.event.addListener marker.serviceObject, 'click', () ->
         console.log "eventatoooo", this
+
+#infowindow = new google.maps.InfoWindow({
+#content: "<div class='popup'><h2>Awesome!</h2><p>Drag me and adjust the zoom level.</p>"
+#})
+#infowindow.open(Gmaps.map.map, marker);
