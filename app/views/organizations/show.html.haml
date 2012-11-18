@@ -4,4 +4,8 @@
 %h3
   = @organization.description
 
-= link_to "Cosa ci serve?", organization_needs_path(@organization)
+%div
+  Cosa ci serve?
+  = render @organization.needs
+
+

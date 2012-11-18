@@ -14,8 +14,8 @@
 <<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121118022637) do
 =======
-ActiveRecord::Schema.define(:version => 20121118014435) do
->>>>>>> 4328b59b278f4647afad9204864892a02e9a7195
+ActiveRecord::Schema.define(:version => 20121118015734) do
+>>>>>>> 2549aa16cba80e8ec3f63046bdfe11ef8dc5d94b
 
   create_table "need_types", :force => true do |t|
     t.string   "name"
