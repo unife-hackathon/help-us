@@ -1,5 +1,5 @@
 class NeedType < ActiveRecord::Base
-  attr_accessible :description, :icon, :name, :um, :logo
+  attr_accessible :description, :name, :um, :logo
 
   has_many :needs
 
