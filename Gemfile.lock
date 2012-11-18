@@ -57,6 +57,7 @@ GEM
     font-awesome-sass-rails (2.0.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    gmaps4rails (1.5.6)
     haml (3.1.7)
     hashie (1.2.0)
     hike (1.2.1)
@@ -193,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
+  gmaps4rails
   jquery-rails
   less-rails
   omniauth-facebook
