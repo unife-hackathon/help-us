@@ -9,6 +9,6 @@
   = @need.organization.description
 
 = form_for [@need.organization, @need, @supply] do |f|
-  = f.label "Quantità"
+  = f.label "Quantità (#{@supply.need.need_type.um})"
   = f.text_field :quantity
   = f.submit "Invia", :class => "btn btn-primary"
