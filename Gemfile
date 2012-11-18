@@ -11,6 +11,7 @@ gem 'devise'
 gem 'thin'
 gem 'paperclip'
 gem 'omniauth-facebook'
+gem 'gmaps4rails'
 gem 'rails_admin'
 
 # Gems used only for assets and not required
