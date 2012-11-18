@@ -40,10 +40,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  def admin?
-    admin
-  end
-
   def username
     email.split("@").first
   end

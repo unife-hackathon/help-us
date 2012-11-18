@@ -1,0 +1,9 @@
+%div
+  - @need.attachments.each do |attachment|
+    = image_tag attachment.photo.url(:medium) unless attachment.new_record?
+
+  = form_for [@need.organization, @need], :html => {:multipart => true} do |f|
+    = f.fields_for :attachments do |a|
+      = a.file_field :photo if a.object.new_record?
+
+    =f.submit "Aggiorna"
