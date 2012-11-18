@@ -23,6 +23,7 @@ class SuppliesController < ApplicationController
         begin
           graph = Koala::Facebook::API.new(current_user.fb_token)
           graph.put_wall_post("Ho appena donato per la campagna '#{@need.need_type.name}' usando Aiutiamoci! #{@need.need_type.description}")
+        rescue
         end
       end
 
