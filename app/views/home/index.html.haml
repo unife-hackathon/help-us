@@ -13,10 +13,6 @@
            :markers => {:data => @markers}})
 
 .row-fluid
-  .span12
-    .span1
-    .span5.box
-      %h5
-        Ultime campagne
-      - @organizations.each do |organization|
-        = render organization
+  - @organizations.each do |organization|
+    .span6
+      = render organization
