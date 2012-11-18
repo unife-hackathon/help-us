@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :description, :logo, :name, :latitude, :longitude, :gmaps
+  attr_accessible :description, :logo, :name, :latitude, :longitude, :gmaps, :marker_path
 
   has_many :needs
   #has_many :users
