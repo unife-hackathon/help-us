@@ -12,15 +12,15 @@ class HomeController < ApplicationController
 
   private
 
-  def markers(format)
-    markers = []
-    Organization.all.each do |org|
-      @needs = org.needs
-      markers << { :lat => org.latitude, :lng => org.longitude,
-                   :picture => org.marker_path, :width => 48, :height => 48 }
-      markers.last[:description] = render_to_string("popup_content", :layout => false) if format.eql? "html"
+  def markers
+    Organization.all.to_gmaps4rails do |org, marker|
+      marker.infowindow render_to_string(:partial => "organizations/organization", :locals => { :organization => org})
+      marker.picture({
+                      :picture => org.marker_path,
+                      :width   => 48,
+                      :height  => 48
+                     })
     end
-    markers
   end
 
 end
