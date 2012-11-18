@@ -7,7 +7,7 @@
       %h4.media-heading
         = need.name
       - if current_user.try("admin?")
-        = link_to organization_needs_path(need.organization) do
+        = link_to edit_organization_need_path(need.organization, need) do
           %i.icon-edit
           modifica
 
