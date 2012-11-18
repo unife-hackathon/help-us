@@ -13,7 +13,9 @@
       .progress.progress-striped
         .bar{:style => "width: #{need.percent_completed}%;" }
 
-      = link_to "DONA!", new_organization_need_supply_path(need.organization, need), :class=>"btn btn-huge btn-primary pull-right"
+      = link_to new_organization_need_supply_path(need.organization, need), :class=>"btn btn-large btn-primary pull-right" do
+        %i.icon-heart
+        Aiuta!
 
       - if need.supplies.present?
         = link_to "Donazioni precedenti", "#", :class => "show-hide-donations", :data => { :need_id => need.id}
