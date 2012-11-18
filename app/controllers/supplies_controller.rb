@@ -14,8 +14,9 @@ class SuppliesController < ApplicationController
     @need = Need.find(params[:need_id])
     @supply = @need.supplies.build(params[:supply])
     @supply.user = current_user
+
     if @supply.save
-      redirect_to organization_needs_path(@need.organization)
+      redirect_to organization_path(@need.organization)
     end
   end
 
