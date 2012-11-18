@@ -1,7 +1,12 @@
+%div
+  %h2
+    Necessità dell'organizzazione:
 - if @needs.present?
   - @needs.each do |need|
     = need.requested_quantity
     = need.need_type.um
+    - if current_user.admin?
+      = link_to "Aggiorna", organization_need_path(need.organization,need)
 - else
   %p
     Nessun elemento trovato
