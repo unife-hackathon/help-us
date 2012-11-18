@@ -19,4 +19,8 @@ class Organization < ActiveRecord::Base
     needs.inject(0){|memo, need| memo += need.supplies.sum(:quantity)}
   end
 
+  def percent_completed
+    total_supply * 100 / total_needs
+  end
+
 end
