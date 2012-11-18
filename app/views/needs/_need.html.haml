@@ -1,3 +1,5 @@
+
+
 .need
   .media
     %a.pull-left{ :href => "#"}
@@ -6,10 +8,10 @@
     .media-body
       %h4.media-heading
         = need.name
-      - if current_user.try("admin?")
-        = link_to edit_organization_need_path(need.organization, need) do
-          %i.icon-edit
-          modifica
+        - if current_user.try("admin?")
+          = link_to edit_organization_need_path(need.organization, need), :class => "edit-link" do
+            %i.icon-edit
+            modifica
 
 
 
@@ -21,10 +23,7 @@
 
         .bar{:style => "width: #{need.percent_completed}%;" }
 
-
-      #modalDiv{ :class=>"reveal-modal"}
-
-      = link_to new_organization_need_supply_path(need.organization, need), {"data-need_id"=> "#{need.id}", :class=>"btn btn-large btn-primary pull-right"} do
+      = link_to new_organization_need_supply_path(need.organization, need), {"data-need_id"=> "#{need.id}", :class=>"btn btn-large btn-help btn-primary pull-right"} do
 
         %i.icon-heart
         Aiuta!

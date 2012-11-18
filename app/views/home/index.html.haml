@@ -17,9 +17,9 @@
     .span5.box
       %h5
         Ultime richieste
-      - #TODO: stilare questa parte ----------------------------------------------------------------------------------------
       - @needs.each do |need|
         .need
-          = link_to need.name, organization_need_path(need.organization, need)
+          = link_to need.name, new_organization_need_supply_path(need.organization, need), {:id => "foundRequest"}
+
           da parte di
           = link_to need.organization.name, organization_path(need.organization)
