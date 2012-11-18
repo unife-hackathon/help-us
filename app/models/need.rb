@@ -12,4 +12,8 @@ class Need < ActiveRecord::Base
                     :url => "/system/:attachment/:id/:style/:hash",
                     :hash_secret => ":class/:attachment/:id/:style/:updated_at"
 
+  def percent_completed
+    supplies.sum(:quantity) * 100 / requested_quantity
+  end
+
 end
