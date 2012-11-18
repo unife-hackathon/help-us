@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118015734) do
+ActiveRecord::Schema.define(:version => 20121118022637) do
 
   create_table "need_types", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20121118015734) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.string   "marker_path"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
