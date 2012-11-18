@@ -8,6 +8,9 @@ class SuppliesController < ApplicationController
   def new
     @need = Need.find(params[:need_id])
     @supply = @need.supplies.build(:user => current_user)
+    @is_modal = params[:no_layout].present?
+    render :layout => (not @is_modal)
+
   end
 
   def create

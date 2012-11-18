@@ -1,3 +1,6 @@
+- if @is_modal
+  %a{:class=>"close-reveal-modal", :href=>"#"} &#215;
+
 = form_for [@need.organization, @need, @supply] do |f|
   = f.label :quantity
   = f.text_field :quantity

@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.reveal
 //= require twitter/bootstrap
 //= require_directory ./gmaps4rails
 //= require home
 
 //= require needs
+//= require organizations
