@@ -20,7 +20,8 @@ class Organization < ActiveRecord::Base
   end
 
   def percent_completed
-    total_supply * 100 / total_needs
+    percent = total_supply * 100 / total_needs
+    percent > 100 ? 100 : percent
   end
 
 end
