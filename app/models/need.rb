@@ -6,6 +6,8 @@ class Need < ActiveRecord::Base
   has_many :supplies
   has_many :users, :through => :supply
 
+  delegate :name, :to => :need_type
+
   # Attachments
   has_attached_file :photo, :styles => {:large => '640x640', :medium => "230x230", :thumb => "128x128" },
                     :path => ":rails_root/public/system/:attachment/:id/:style/:hash",

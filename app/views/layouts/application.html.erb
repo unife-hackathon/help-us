@@ -48,7 +48,9 @@
           <a class="brand" href="/">Aiutaci!</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Organizzazioni", organizations_path %></li>
+              <% if current_user %>
+                <li><%= link_to "Organizzazioni", organizations_path %></li>
+              <% end %>
             </ul>
             <ul class="nav pull-right">
                 <% if current_user %>
@@ -56,6 +58,11 @@
                 <% else %>
                     <li><%= link_to "Accedi", new_user_session_path %></li>
                     <li><%= link_to "Registrati", new_user_registration_path %></li>
+                    <li>
+                      <%= link_to user_omniauth_authorize_path(:facebook) do %>
+                        <%= image_tag "facebook.png", :size => "25x25" %>
+                      <%end%>
+                    </li>
                 <% end %>
             </ul>
           </div><!--/.nav-collapse -->
