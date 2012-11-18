@@ -1,0 +1,7 @@
+- if @needs.present?
+  - @needs.each do |need|
+    = need.requested_quantity
+    = need.need_type.um
+- else
+  %p
+    Nessun elemento trovato
