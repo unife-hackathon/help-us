@@ -18,4 +18,3 @@
 //= require home
 
 //= require needs
-//= require organizations
