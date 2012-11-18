@@ -4,9 +4,12 @@
 %h3
   = @organization.description
 
+<br/>
+
 %h4
   Aiuti richiesti
 .span6
   = render @organization.needs
 
-
+.span4.hint-choose-help
+  = image_tag "hint-choose-need.png", :class => "hint-image"

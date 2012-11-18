@@ -34,4 +34,14 @@ CodemotionHackaton::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = false
+
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => 'hackaton',
+          :access_key_id => 'AKIAJOY45QEDSFAHP42Q',
+          :secret_access_key => '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'
+      }
+  }
+
 end

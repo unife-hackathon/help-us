@@ -1,5 +1,6 @@
 .organization{
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    clear: both;
 
     .name{
     font-size: 1.3em;
@@ -11,6 +12,8 @@
     .progress{
         margin-top: 10px;
         margin-bottom: 0px;
+        width: 60%;
+        float: left;
 
         .bar{
             text-align: center;
@@ -18,4 +21,15 @@
         }
 }
 
+  .btn-help{
+    float: left;
+    visibility: hidden;
+    margin-left: 20px;
+  }
+
+  &:hover{
+    .btn-help{
+     visibility: visible;
+    }
+  }
 }
