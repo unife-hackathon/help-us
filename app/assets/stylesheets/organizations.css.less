@@ -1,35 +1,53 @@
-.organization{
-    margin-bottom: 20px;
-    clear: both;
+.organization {
+  margin-bottom: 20px;
+  clear: both;
 
-    .name{
+  .percented-completed {
+    line-height: 50px;
+    width: 80px;
+    font-size: 35px;
+
+    .sign {
+      font-size: 10px;
+    }
+  }
+
+  .name {
     font-size: 1.3em;
     line-height: 1em;
-    }
+  }
 
-    .description{
-    }
-    .progress{
-        margin-top: 10px;
-        margin-bottom: 0px;
-        width: 60%;
-        float: left;
-
-        .bar{
-            text-align: center;
-            text-color: #000000;
-        }
-}
-
-  .btn-help{
+  .description {
+  }
+  .progress {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    width: 60%;
     float: left;
-    visibility: hidden;
+
+    .bar {
+      text-align: center;
+      text-color: #000000;
+    }
+  }
+
+  .btn-help {
+    float: left;
+    //visibility: hidden;
     margin-left: 20px;
   }
 
-  &:hover{
-    .btn-help{
-     visibility: visible;
+  &:hover {
+    .btn-help {
+     // visibility: visible;
     }
+  }
+}
+
+.organization-show {
+  .percented-completed {
+    font-size: 30px;
+    height: 50px;
+    line-height: 30px;
   }
 }
