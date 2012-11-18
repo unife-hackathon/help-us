@@ -1,13 +1,20 @@
 .organization
-  .name
-    = link_to organization.name, organization_path(organization)
+  .media
+    .pull-left.percented-completed
+      = "#{organization.percent_completed}%"
 
-  .description
-    = organization.description
-  .progress
-    .bar{ :style => "width: #{organization.percent_completed}%;"}
-  = link_to organization_path(organization), {:class => "pull-right btn-primary btn btn-help btn-large"} do
-    %i.icon-heart
-    Aiuta!
-  .clearfix
+    .media-body
+      %h4.media-heading.name
+        = link_to organization.name, organization_path(organization)
+
+
+      .description
+        = organization.description
+      .progress
+        .bar{ :style => "width: #{organization.percent_completed}%;"}
+
+      = link_to organization_path(organization), {:class => "pull-right btn-primary btn btn-help btn-large"} do
+        %i.icon-heart
+        Aiuta!
+      .clearfix
 

@@ -1,15 +1,27 @@
-%h1
-  = @organization.name
+.organization-show
+  %h1
+    = @organization.name
 
-%h3
-  = @organization.description
+  %h3
+    = @organization.description
 
-<br/>
 
-%h4
-  Aiuti richiesti
-.span6
-  = render @organization.needs
+  %h4
+    Completamento compagna
+  .span6
+    .media
+      .pull-left.percented-completed
+        = "#{@organization.percent_completed}%"
 
-.span4.hint-choose-help
-  = image_tag "hint-choose-need.png", :class => "hint-image"
+      .media-body
+        .progress.progress-striped
+          .bar{:style => "width: #{@organization.percent_completed}%; "}
+
+  .clearfix
+  %h4
+    Aiuti richiesti
+  .span6
+    = render @organization.needs
+
+  .span4.hint-choose-help
+    = image_tag "hint-choose-need.png", :class => "hint-image"
