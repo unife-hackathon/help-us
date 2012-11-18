@@ -4,19 +4,27 @@
       = image_tag "/#{need.need_type.logo}", :class => "media-object"
 
     .media-body
-      = link_to new_organization_need_supply_path(need.organization, need), :class=>"btn-help btn btn-large btn-primary pull-right" do
-        %i.icon-heart
-        Aiuta!
-
       %h4.media-heading
         = need.name
+      - if current_user.try("admin?")
+        = link_to organization_needs_path(need.organization) do
+          %i.icon-edit
+          modifica
+
+
 
       raccolti
       = "#{need.supplies.sum(:quantity)} su #{need.requested_quantity} #{need.need_type.um}"
+      .clearfix
 
       .progress.progress-striped
         .bar{:style => "width: #{need.percent_completed}%;" }
 
+      = link_to new_organization_need_supply_path(need.organization, need), :class=>"btn-help btn btn-large btn-primary pull-right" do
+        %i.icon-heart
+        Aiuta!
+
+      .clearfix
       - if need.supplies.present?
         = link_to "Donazioni precedenti", "#", :class => "show-hide-donations", :data => { :need_id => need.id}
         .supplies{:id => "supplies-need-#{need.id}", :style => "display:none;"}
@@ -24,3 +32,4 @@
           - need.supplies.each do |supply|
             .supply
               = "#{supply.user.username} ha donato #{supply.quantity} #{need.need_type.um}"
+  .clearfix
