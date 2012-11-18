@@ -4,6 +4,6 @@
 
   = form_for [@need.organization, @need], :html => {:multipart => true} do |f|
     = f.fields_for :attachments do |a|
-      = a.file_field :photo unless a.object.new_record?
+      = a.file_field :photo if a.object.new_record?
 
-    =f.submit
+    =f.submit "Aggiorna"

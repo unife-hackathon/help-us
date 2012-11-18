@@ -16,7 +16,7 @@ class NeedsController < ApplicationController
 
   def update
     @need = Need.find params[:id]
-    if @need.save(params[:need])
+    if @need.update_attributes(params[:need])
       redirect_to organization_path(@need.organization), :notice => "Hai aggiunto un immagine!"
     else
       redirect_to root_path, :error => "Hai sbagliato qualcosa"
