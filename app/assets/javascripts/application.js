@@ -15,3 +15,5 @@
 //= require twitter/bootstrap
 //= require_directory ./gmaps4rails
 //= require home
+
+//= require needs

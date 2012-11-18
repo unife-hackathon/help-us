@@ -1,11 +1,11 @@
 .site-slogan
   Partecipa a progetti concreti
   .description
-    Aiutaci! ti mostra chi ha bisogno di beni reali e denaro a causa di tragiche catastrofi
+    Aiutaci! ti consente di vedere e aiutare chi ha bisogno di beni e denaro a causa di tragiche catastrofi
 
 .span1
-.span4.find-on-map
-  = image_tag "find_on_map.png"
+.span4.find-on-map.hint-image
+  = image_tag "hint-find-on-map.png", :class => "hidden-phone"
 
 .span6
   = gmaps({:map_options => {:zoom => 5, :auto_adjust => true, :language => 'en'},

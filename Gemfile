@@ -14,6 +14,10 @@ gem 'omniauth-facebook'
 gem 'gmaps4rails'
 gem 'rails_admin'
 
+
+#Facebook
+gem 'koala', '~> 1.5.0'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

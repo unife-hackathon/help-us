@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
         user.fb_token = auth.credentials.token
         user.uid = auth.uid
         user.has_local_password = false
+
+        graph = Koala::Facebook::API.new(user.fb_token)
+        graph.put_wall_post("Mi sono appena iscritto ad 'Aiutiamoci'! Unisciti a me, c'e' bisogno dell'aiuto di tutti!")
+
         user.save
       end
     end
