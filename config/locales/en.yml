@@ -3,3 +3,9 @@
 
 en:
   hello: "Hello world"
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  forgot_your_password: "Forgot your password?"
+  confirm_instructions: "Didn't receive confirmation instructions?"
+  sign_in_w: "Sign in with"
+  none_unlock_intructions: "Didn't receive unlock instructions?"

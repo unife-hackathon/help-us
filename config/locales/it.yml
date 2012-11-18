@@ -1,2 +1,8 @@
 it:
   hello: "Ciao mondo"
+  sign_in: "Accedi"
+  sign_up: "Registrati"
+  forgot_your_password: "Hai dimenticato la password?"
+  sign_in_w: "Accedi con"
+  confirm_instructions: "Non hai ricevuto le istruzioni di conferma?"
+  none_unlock_intructions: "Non hai ricevuto le istruzioni di sblocco?"
