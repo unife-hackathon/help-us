@@ -8,7 +8,8 @@
 
 = link_to "DONA!", new_organization_need_supply_path(need.organization, need), :class=>"btn btn-huge btn-primary pull-right"
 
-
+- if current_user.try(:admin?)
+  = link_to "Aggiorna", edit_organization_need_path(need.organization,need)
 
 - #TODO: terminare di stilare gli la sezione di utenti che hanno effettuato donazioni con HIDE/SHOW
 

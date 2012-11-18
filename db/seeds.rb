@@ -42,7 +42,7 @@ mensa_finale = Organization.create(:name => "Mensa di Finale Emilia",
 
 # Create some needs for the organizations
 s_ago_school.needs.create(:requested_quantity => 10000,
-            :need_type_id => money.id)
+                          :need_type_id => money.id)
 
 s_ago_school.needs.create(:requested_quantity => 1000,
                           :need_type_id => water.id)
@@ -57,17 +57,17 @@ s_ago_school.needs.create(:requested_quantity => 200,
                           :need_type_id => uova.id)
 
 mensa_finale.needs.create(:requested_quantity => 30000,
-                    :need_type_id => money.id)
+                          :need_type_id => money.id)
 
 mensa_finale.needs.create(:requested_quantity => 500,
-           :need_type_id => water.id)
+                          :need_type_id => water.id)
 
 mensa_finale.needs.create(:requested_quantity => 5,
-                    :need_type_id => volounteer.id)
+                          :need_type_id => volounteer.id)
 
 mensa_finale.needs.create(:requested_quantity => 5,
-                    :need_type_id => farina.id)
+                          :need_type_id => farina.id)
 
 mensa_finale.needs.create(:requested_quantity => 5,
-                    :need_type_id => uova.id)
+                          :need_type_id => uova.id)
 

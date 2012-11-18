@@ -16,7 +16,8 @@ class HomeController < ApplicationController
     Organization.all.each do |org|
       @needs = org.needs
       markers << { :lat => org.latitude, :lng => org.longitude,
-                   :picture => org.marker_path, :width => 48, :height => 48 }
+                   :picture => org.marker_path, :width => 48, :height => 48,
+                   :name => org.name, :description => org.description, :logo => org.logo }
       markers.last[:description] = render_to_string(:partial => "organizations/organization", :locals => { :organization => org}) if format.eql? 'html'
     end
     markers
