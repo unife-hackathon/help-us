@@ -13,7 +13,8 @@ class Need < ActiveRecord::Base
   accepts_nested_attributes_for :attachments
 
   def percent_completed
-    supplies.sum(:quantity) * 100 / requested_quantity
+    percent = supplies.sum(:quantity) * 100 / requested_quantity
+    percent > 100 ? 100 : percent
   end
 
 end
