@@ -1,22 +1,26 @@
 class HomeController < ApplicationController
 
   def index
-    @markers = markers
+    #@markers = markers
     @needs = Need.includes(:organization).order('created_at desc').last(5)
+    respond_to do |format|
+      format.html { @markers = markers('html').to_json}
+      format.json { render json: markers('json').to_json   }
+    end
   end
 
 
   private
 
   def markers
-    markers = []
-    Organization.all.each do |org|
-      @needs = org.needs
-      markers << {:lat => org.latitude, :lng => org.longitude,
-                  :picture => org.marker_path, :width => 48, :height => 48,
-                  :description => render_to_string("popup_content", :layout => false)}
+    Organization.all.to_gmaps4rails do |org, marker|
+      marker.infowindow render_to_string(:partial => "organizations/organization", :locals => { :organization => org})
+      marker.picture({
+                      :picture => org.marker_path,
+                      :width   => 48,
+                      :height  => 48
+                     })
     end
-    markers.to_json
   end
 
 end
