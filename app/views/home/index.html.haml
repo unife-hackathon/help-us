@@ -8,4 +8,6 @@
   = image_tag "find_on_map.png"
 
 .span6
-  = gmaps4rails @organizations_gmaps
+  = gmaps({:map_options => {:zoom => 5, :auto_adjust => true, :language => 'en'},
+           :markers => {:data => @markers}})
+
