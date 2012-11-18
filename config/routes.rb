@@ -9,7 +9,9 @@ CodemotionHackaton::Application.routes.draw do
 
 
   resources :organizations do
-    resources :needs
+    resources :needs do
+      resources :supplies
+    end
   end
 
   # The priority is based upon order of creation:

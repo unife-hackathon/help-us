@@ -4,5 +4,7 @@ class Need < ActiveRecord::Base
   #has_many :attachments
   belongs_to :organization
   belongs_to :need_type
+  has_many :supplies
+  has_many :users, :through => :supply
 
 end
