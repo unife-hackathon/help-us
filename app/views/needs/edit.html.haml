@@ -1,3 +1,11 @@
+%h1
+  Aggiungi immagini
+
+%h3
+  = @need.organization.description
+
+<br/>
+
 %div
   - @need.attachments.each do |attachment|
     = image_tag attachment.photo.url(:medium) unless attachment.new_record?
