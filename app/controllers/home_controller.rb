@@ -1,8 +1,12 @@
 class HomeController < ApplicationController
 
   def index
-    @markers = markers()
+    #@markers = markers
     @needs = Need.includes(:organization).order('created_at desc').last(5)
+    respond_to do |format|
+      format.html { @markers = markers('html').to_json}
+      format.json { render json: markers('json').to_json   }
+    end
   end
 
 

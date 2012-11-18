@@ -2,22 +2,41 @@ class HomeController < ApplicationController
 
   def index
 <<<<<<< HEAD
-    @markers = Organization.markers
+    #@markers = markers
 =======
-    @organizations_gmaps = Organization.all.to_gmaps4rails do |organization, marker|
-      marker.infowindow render_to_string(:partial => "organizations/organization", :locals => { :organization => organization})
-=begin
-      marker.picture({
-                      :picture => "http://www.blankdots.com/img/github-32x32.png",
-                      :width   => 32,
-                      :height  => 32
-                     })
-=end
-      marker.title   "i'm the title"
-      marker.sidebar "i'm the sidebar"
-      marker.json({ :id => organization.id, :foo => "bar" })
+    @markers = markers()
+>>>>>>> 94991e525f7c365b3a7fa0de1fcc8b870c2fd00e
+    @needs = Need.includes(:organization).order('created_at desc').last(5)
+    respond_to do |format|
+      format.html { @markers = markers('html').to_json}
+      format.json { render json: markers('json').to_json   }
     end
->>>>>>> 4328b59b278f4647afad9204864892a02e9a7195
+  end
+
+
+  private
+
+<<<<<<< HEAD
+  def markers(format)
+    markers = []
+    Organization.all.each do |org|
+      @needs = org.needs
+      markers << { :lat => org.latitude, :lng => org.longitude,
+                   :picture => org.marker_path, :width => 48, :height => 48 }
+      markers.last[:description] = render_to_string("popup_content", :layout => false) if format.eql? "html"
+    end
+    markers
+=======
+  def markers
+    Organization.all.to_gmaps4rails do |org, marker|
+      marker.infowindow render_to_string(:partial => "organizations/organization", :locals => { :organization => org})
+      marker.picture({
+                      :picture => org.marker_path,
+                      :width   => 48,
+                      :height  => 48
+                     })
+    end
+>>>>>>> 94991e525f7c365b3a7fa0de1fcc8b870c2fd00e
   end
 
 end

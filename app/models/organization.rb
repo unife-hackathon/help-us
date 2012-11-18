@@ -11,4 +11,16 @@ class Organization < ActiveRecord::Base
     "ciao"#"#{self.street}, #{self.city}, #{self.country}"
   end
 
+  def total_needs
+    needs.sum(:requested_quantity)
+  end
+
+  def total_supply
+    needs.inject(0){|memo, need| memo += need.supplies.sum(:quantity)}
+  end
+
+  def percent_completed
+    total_supply * 100 / total_needs
+  end
+
 end
