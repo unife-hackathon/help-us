@@ -11,17 +11,4 @@ class Organization < ActiveRecord::Base
     "ciao"#"#{self.street}, #{self.city}, #{self.country}"
   end
 
-  def gmaps4rails_marker_picture
-    {
-        "picture" => "assets/firstaid.png",
-        "width" => 40,
-        "height" => 40,
-        #"marker_anchor" => [ 5, 10],
-        #"shadow_picture" => "/assets/help.png" ,
-        #"shadow_width" => "110",
-        #"shadow_height" => "110",
-        #"shadow_anchor" => [5, 10],
-    }
-  end
-
 end
