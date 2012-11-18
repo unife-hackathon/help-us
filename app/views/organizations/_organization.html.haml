@@ -5,3 +5,7 @@
       = link_to "Manage the project", organization_needs_path(organization)
   .description
     = organization.description
+  .progress
+    = "#{organization.percent_completed}%"
+    .bar{ :style => "width: #{organization.percent_completed}%;"}
+
