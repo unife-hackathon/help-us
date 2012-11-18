@@ -6,11 +6,11 @@ money = NeedType.create(:name => "money",
 water = NeedType.create(:name => "water",
                         :description => "We need some water!",
                         :logo => "system/water.jpg",
-                        :um => "lt")
+                        :um => "litri")
 volounteer = NeedType.create(:name => "volounteer",
                              :description => "Help us people!",
                              :logo => "system/volounteer.jpg",
-                             :um => "")
+                             :um => "persone")
 
 # Create some organizations
 s_ago_school = Organization.create(:name => "Nuova scuola di S.Agostino",

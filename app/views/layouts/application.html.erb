@@ -36,14 +36,6 @@
   </head>
   <body>
 
-  <nav>
-    <% if current_user %>
-      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Login", new_user_session_path %>
-      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-    <% end %>
-  </nav>
 
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
@@ -58,12 +50,22 @@
             <ul class="nav">
               <li><%= link_to "Organizzazioni", organizations_path %></li>
             </ul>
+            <ul class="nav pull-right">
+                <% if current_user %>
+                    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                    <li><%= link_to "Login", new_user_session_path %></li>
+                    <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                <% end %>
+            </ul>
           </div><!--/.nav-collapse -->
+
+
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div id="content" class="container-fluid">
       <div class="row-fluid">
         <div class="span12">
           <%= bootstrap_flash %>
