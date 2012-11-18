@@ -5,7 +5,7 @@
   - @needs.each do |need|
     = need.requested_quantity
     = need.need_type.um
-    - if current_user.admin?
+    - if current_user.try("admin?")
       = link_to "Aggiorna", organization_need_path(need.organization,need)
 - else
   %p

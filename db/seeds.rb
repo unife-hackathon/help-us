@@ -35,7 +35,8 @@ mensa_finale = Organization.create(:name => "Mensa di Finale Emilia",
                     :description => "Aiutiamo le persone a superare questo momento difficile!",
                     :logo => "http://img.funtasticus.com/2008/nov/111512Amateurs/amateur%20girls%208.jpg",
                     :latitude => "44.8311",
-                    :longitude => "11.2919")
+                    :longitude => "11.2919",
+                    :marker_path => "../assets/icons/family_aid.png")
 
 # Create some needs for the organizations
 s_ago_school.needs.create(:requested_quantity => 10000,
