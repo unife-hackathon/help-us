@@ -58,6 +58,11 @@
                 <% else %>
                     <li><%= link_to "Accedi", new_user_session_path %></li>
                     <li><%= link_to "Registrati", new_user_registration_path %></li>
+                    <li>
+                      <%= link_to user_omniauth_authorize_path(:facebook) do %>
+                        <%= image_tag "facebook.png", :size => "25x25" %>
+                      <%end%>
+                    </li>
                 <% end %>
             </ul>
           </div><!--/.nav-collapse -->

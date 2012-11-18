@@ -12,12 +12,4 @@ class Organization < ActiveRecord::Base
   end
 
 
-  def self.markers
-    markers = []
-    Organization.all.each do |org|
-      markers << {:lat => org.latitude, :lng => org.longitude, :picture => org.marker_path, :width => 48, :height => 48, :description => "asdasd"}
-    end
-    markers.to_json
-  end
-
 end
