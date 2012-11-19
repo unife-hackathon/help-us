@@ -38,9 +38,9 @@ CodemotionHackaton::Application.configure do
   config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
-          :bucket => 'hackaton',
-          :access_key_id => 'AKIAJOY45QEDSFAHP42Q',
-          :secret_access_key => 'jdVuD3b6qkNxRker3Uj5Yxw+hsz4qyoc825x05ed'
+          :bucket => 'YOUR_BUCKET',
+          :access_key_id => 'YOUR_ACCESS_KEY_ID',
+          :secret_access_key => 'YOUR_SECRET_ACCESS_KEY'
       }
   }
 
